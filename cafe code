@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    float espressoPrice = 250.0;
+    float lattePrice = 300.0;
+    float cappuccinoPrice = 350.0;
+
+    
+    int espressoQty, latteQty, cappuccinoQty;
+
+    
+    int *ptr1 = &espressoQty;
+    int *ptr2 = &latteQty;
+    int *ptr3 = &cappuccinoQty;
+
+    
+    cout << "Enter quantity of Espresso: ";
+    cin >> *ptr1;
+
+    cout << "Enter quantity of Latte: ";
+    cin >> *ptr2;
+
+    cout << "Enter quantity of Cappuccino: ";
+    cin >> *ptr3;
+
+    
+    float totalEspresso = (*ptr1) * espressoPrice;
+    float totalLatte = (*ptr2) * lattePrice;
+    float totalCappuccino = (*ptr3) * cappuccinoPrice;
+
+    float totalBill;
+    float *pTotal = &totalBill;
+
+    *pTotal = totalEspresso + totalLatte + totalCappuccino;
+
+    
+    cout << "\n------ Cafe Bill ------\n";
+    cout << "Espresso (" << *ptr1 << " x " << espressoPrice << ") = " << totalEspresso << endl;
+    cout << "Latte (" << *ptr2 << " x " << lattePrice << ") = " << totalLatte << endl;
+    cout << "Cappuccino (" << *ptr3 << " x " << cappuccinoPrice << ") = " << totalCappuccino << endl;
+    cout << "-------------------------\n";
+    cout << "TOTAL BILL: " << *pTotal << endl;
+
+    return 0;
+}
